@@ -1,4 +1,4 @@
-# Learn Rust with Tests
+# Learn Rust with TDD
 
 Like Learn Go with Tests, but in Rust. 
 
@@ -6,3 +6,7 @@ Like Learn Go with Tests, but in Rust.
 
 - Make some £££
 - Maybe use https://github.com/rust-lang/mdBook for consistent formatting between snippets and code?
+
+## Resources 
+
+- https://doc.rust-lang.org/book/ch11-00-testing.html
