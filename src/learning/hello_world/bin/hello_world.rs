@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", greet())
+    println!("{}", greet(String::from("world")))
 }
 
 #[cfg(test)]
@@ -8,10 +8,10 @@ mod tests {
 
     #[test]
     fn test_greet() {
-        assert_eq!("Hello, world!", greet())
+        assert_eq!("Hello, Chris!", greet(String::from("Chris")))
     }
 }
 
-fn greet() -> String {
-    "Hello, world!".to_string()
+fn greet(name: String) -> String {
+    format!("Hello, {0}!", name)
 }
