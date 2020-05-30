@@ -6,7 +6,11 @@ edition = "2018"
 
 [[bin]]
 name = "hello_world"
-path = "src/hello_world/bin/hello_world.rs"
+path = "src/learning/hello_world/bin/hello_world.rs"
+
+[[bin]]
+name = "fizz_buzz"
+path = "src/learning/fizz_buzz/bin/main.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
