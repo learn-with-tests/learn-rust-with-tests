@@ -1,5 +1,5 @@
 fn main() {
-    println!("{}", greet(None))
+    println!("{}", greet("en",None))
 }
 
 #[cfg(test)]
@@ -7,16 +7,21 @@ mod tests {
     use super::greet;
 
     #[test]
-    fn test_greet() {
-        let name = "Chris";
-        assert_eq!("Hello, Chris!", greet(Option::from(name)))
+    fn test_greet_in_english() {
+        assert_eq!("Hello, Chris!", greet("en", Option::from("Chris")));
+        assert_eq!("Hola, Dave!", greet("es", Option::from("Dave")));
     }
 }
 
-const DEFAULT_GREET: &str = "world"; //todo: work into constant
+const DEFAULT_GREET: &str = "world";
 
-fn greet(name: Option<&str>) -> String {
-    format!("Hello, {0}!", name.unwrap_or(DEFAULT_GREET))
+fn greet(lang: &str, name: Option<&str>) -> String {
+    let greeting = match lang {
+        "en" => "Hello",
+        "es" => "Hola",
+        _ => "Hello"
+    };
+    format!("{0}, {1}!", greeting, name.unwrap_or(DEFAULT_GREET))
 }
 
 /* notes
