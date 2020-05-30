@@ -6,37 +6,42 @@ fn main() {
     println!("{}", greet(French,Option::from("Lisa")));
 }
 
+// refactor to and talk about: type safety, descriptiveness, caller doesn't need magic strings
 enum Language {
     English,
     Spanish,
     French,
 }
 
-// can talk about constants
+// refactor to and talk about: constants
 const DEFAULT_GREET: &str = "World";
 
-// talk about option
+// refactor to and talk about: option
 fn greet(lang: Language, name: Option<&str>) -> String {
+    // type safety around pattern matching
     let greeting = match lang {
         Language::English => "Hello",
         Language::Spanish => "Hola",
         Language::French => "Bonjour",
     };
+    // formatting strings, dealing with Some vs None
     format!("{0}, {1}!", greeting, name.unwrap_or(DEFAULT_GREET))
 }
 
+// talk about: separate modules for tests so they're not compiled into the program
 #[cfg(test)]
 mod tests {
     use super::greet;
     use crate::Language::{Spanish, English, French};
 
     #[test]
-    fn test_greet_in_english() {
+    fn test_greet() {
         assert_eq!("Hello, Chris!", greet(English, Option::from("Chris")));
         assert_eq!("Hola, Dave!", greet(Spanish, Option::from("Dave")));
         assert_eq!("Bonjour, Ruth!", greet(French, Option::from("Ruth")));
     }
 }
+
 
 /* notes
 - Hooray for option back in my life
