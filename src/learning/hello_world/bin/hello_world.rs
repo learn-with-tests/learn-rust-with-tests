@@ -1,27 +1,41 @@
+use crate::Language::{English, Spanish, French};
+
 fn main() {
-    println!("{}", greet("en",None))
+    println!("{}", greet(English,None));
+    println!("{}", greet(Spanish,Option::from("Pepper")));
+    println!("{}", greet(French,Option::from("Lisa")));
+}
+
+enum Language {
+    English,
+    Spanish,
+    French,
+}
+
+// can talk about constants
+const DEFAULT_GREET: &str = "World";
+
+// talk about option
+fn greet(lang: Language, name: Option<&str>) -> String {
+    let greeting = match lang {
+        Language::English => "Hello",
+        Language::Spanish => "Hola",
+        Language::French => "Bonjour",
+    };
+    format!("{0}, {1}!", greeting, name.unwrap_or(DEFAULT_GREET))
 }
 
 #[cfg(test)]
 mod tests {
     use super::greet;
+    use crate::Language::{Spanish, English, French};
 
     #[test]
     fn test_greet_in_english() {
-        assert_eq!("Hello, Chris!", greet("en", Option::from("Chris")));
-        assert_eq!("Hola, Dave!", greet("es", Option::from("Dave")));
+        assert_eq!("Hello, Chris!", greet(English, Option::from("Chris")));
+        assert_eq!("Hola, Dave!", greet(Spanish, Option::from("Dave")));
+        assert_eq!("Bonjour, Ruth!", greet(French, Option::from("Ruth")));
     }
-}
-
-const DEFAULT_GREET: &str = "world";
-
-fn greet(lang: &str, name: Option<&str>) -> String {
-    let greeting = match lang {
-        "en" => "Hello",
-        "es" => "Hola",
-        _ => "Hello"
-    };
-    format!("{0}, {1}!", greeting, name.unwrap_or(DEFAULT_GREET))
 }
 
 /* notes
