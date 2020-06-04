@@ -1,4 +1,4 @@
-use std::ops::Add;
+use std::ops::Add; // note this trait (i think?) needs importing
 
 fn main() {
     println!("{}",sum([1, 1, 1]))
@@ -13,16 +13,19 @@ fn sum(numbers: [i32; 3]) -> i32 {
 }
 
 fn sum2(numbers: [i32; 3]) -> i32 {
-    // coerce the array into a slice
-    let iter = numbers.iter();
+    numbers
+        .iter()
+        .enumerate()
+        .fold(0, |sum, val| val.1.add(sum))
+}
 
-    let enumerate = iter.enumerate();
-    enumerate.fold(0, |sum, val| val.1.add(sum))
+fn sum3(numbers: [i32; 3]) -> i32 {
+    numbers.iter().sum()
 }
 
 #[cfg(test)]
 mod tests {
-    use crate::{sum, sum2};
+    use crate::{sum, sum2, sum3};
 
     #[test]
     fn test_sum1() {
@@ -32,6 +35,11 @@ mod tests {
     #[test]
     fn test_sum2() {
         assert_eq!(6, sum2([1, 2, 3]));
+    }
+
+    #[test]
+    fn test_sum3() {
+        assert_eq!(6, sum3([1, 2, 3]));
     }
 }
 
