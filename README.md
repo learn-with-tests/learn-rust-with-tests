@@ -4,6 +4,8 @@ Like Learn Go with Tests, but in Rust.
 
 ![github pages](https://github.com/learn-with-tests/learn-rust-with-tests/workflows/github%20pages/badge.svg)
 
+[Buy us a coffee :coffee:](https://www.buymeacoffee.com/learnwithtests)!
+
 ## Development Requirements
 
 _Learn Rust With TDD_ is written using [mdBook][mdBook]. Follow the instructions
