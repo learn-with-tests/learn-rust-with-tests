@@ -164,3 +164,55 @@ guarantee that the car will actually turn a corner when it's being driven. But
 it does give us some confidence that it will.
 
 ## My First Test - Rust Edition
+
+How do you test this? It is good to separate your "domain" code from the outside
+world (_side effects_). The `println!` is a side effect (printing to stdout) and
+the string we send in is our domain.
+
+So let's separate these concerns so it's easier to test.
+
+```rust
+{{#include ./chapter_0_examples/hello_world_with_tests/src/main.rs:1:7}}
+```
+
+We have created a new function again with `fn`, but this time we've added the
+symbol `->` to introduce the type(s) that the function returns, plus the keyword
+`String` meaning our function returns a string (technically transfering _ownership_
+of a heap allocated and growable vector of bytes representing a valid string
+encoded as UTF-8, but we'll come back to that!).
+
+The `println!` macro takes a format string literal as the first argument, followed
+by zero or more values that are used by that format string. In our case the format
+string contains `{}` to embed the value returned from our `hello` function
+formatted simply as a string.
+
+Tests can be added to the same file:
+
+```rust
+{{#include ./chapter_0_examples/hello_world_with_tests/src/main.rs:9:17}}
+```
+
+Before we delve into what's going on here let's run the tests: run
+`cargo test` from your terminal - you should see a successful test run
+with 1 passing test.
+
+The first line is a directive to the compiler meaning that the following
+item will only be compiled when running the tests. That item is a
+_sub-module_ - a module within the module defined by our `main.rs` file.
+We've followed the convention of calling our sub-module "tests", so it
+does what it says on the tin!
+
+The function with the `#[test]` annotation is where the testing action
+begins. The annotation is used by the test runner to identify which
+function(s) should be run as tests. The
+[`assert_eq!`](https://doc.rust-lang.org/std/macro.assert_eq.html) macro
+is part of standard library for testing equality between two values. In
+this case we are asserting the actual value returned from our function
+(`super::` is required to quality the function in the enclosing
+module) matches the expected value.
+
+Notice that when it comes to testing Rust is a batteries included
+language - everything you need to get started is included in the language
+and standard tools. Also of note is that while there is a little
+boilerplate required to separate your testing code, test's are
+concise with very little ceremony required.
