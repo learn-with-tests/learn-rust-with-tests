@@ -1,6 +1,8 @@
 # Learn Rust with TDD
 
-Like Learn Go with Tests, but in Rust.
+Like Learn Go with Tests, but in Rust. 
+
+[HTML](https://learn-with-tests.github.io/learn-rust-with-tests/)
 
 ![github pages](https://github.com/learn-with-tests/learn-rust-with-tests/workflows/github%20pages/badge.svg)
 
