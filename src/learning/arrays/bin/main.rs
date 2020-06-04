@@ -1,10 +1,10 @@
 use std::ops::Add; // note this trait (i think?) needs importing
 
 fn main() {
-    println!("{}",sum([1, 1, 1]))
+    println!("{}",sum1([1, 1, 1]))
 }
 
-fn sum(numbers: [i32; 3]) -> i32 {
+fn sum1(numbers: [i32; 3]) -> i32 {
     let mut total = 0;
     for (_, &item) in numbers.iter().enumerate() {
         total = total + item
@@ -16,7 +16,7 @@ fn sum2(numbers: [i32; 3]) -> i32 {
     numbers
         .iter()
         .enumerate()
-        .fold(0, |sum, val| val.1.add(sum))
+        .fold(0, |sum, val| val.1.add(sum)) // this feels wonky but fine
 }
 
 fn sum3(numbers: [i32; 3]) -> i32 {
@@ -25,21 +25,34 @@ fn sum3(numbers: [i32; 3]) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::{sum, sum2, sum3};
+    use crate::{sum1, sum2, sum3};
+
+    const NUMBERS: [i32; 3] = [1, 2, 3];
+    const EXPECTED_SUM: i32 = 6;
+
+    fn testSum(f: &dyn Fn([i32; 3]) -> i32) {
+        assert_eq!(EXPECTED_SUM, f(NUMBERS))
+    }
+
+    /*
+    why address of the function is passed? are these funcs not pure?
+
+    https://stackoverflow.com/a/36390748
+     */
 
     #[test]
     fn test_sum1() {
-        assert_eq!(6, sum([1, 2, 3]));
+        testSum(&sum1)
     }
 
     #[test]
     fn test_sum2() {
-        assert_eq!(6, sum2([1, 2, 3]));
+        testSum(&sum2)
     }
 
     #[test]
     fn test_sum3() {
-        assert_eq!(6, sum3([1, 2, 3]));
+        testSum(&sum3);
     }
 }
 
