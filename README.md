@@ -21,4 +21,4 @@ there to install mdBook on your machine and build the book.
 
 - https://doc.rust-lang.org/book/ch11-00-testing.html
 
-[mbBook]: https://github.com/rust-lang/mdBook
+[mdBook]: https://github.com/rust-lang/mdBook
