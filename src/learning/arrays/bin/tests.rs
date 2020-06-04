@@ -1,4 +1,4 @@
-use crate::{sum2, sum3, sum4, sum1};
+use crate::{sum3, sum4, sum5, sum1, sum2};
 
 const NUMBERS: [i32; 3] = [1, 2, 3];
 const EXPECTED_SUM: i32 = 6;
@@ -13,4 +13,5 @@ fn test_sums() {
     test_sum(sum2);
     test_sum(sum3);
     test_sum(sum4);
+    test_sum(sum5);
 }
