@@ -16,7 +16,7 @@ at the command line.
 This will create a new directory, `hello_world`. The structure within this
 folder looks like this:
 
-```
+```console
 hello_world
 ├── Cargo.toml
 └── src
