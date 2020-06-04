@@ -16,6 +16,10 @@ path = "src/learning/arrays/bin/main.rs"
 name = "fizz_buzz"
 path = "src/learning/fizz_buzz/bin/main.rs"
 
+[[bin]]
+name = "ownership"
+path = "src/learning/ownership/bin/main.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
