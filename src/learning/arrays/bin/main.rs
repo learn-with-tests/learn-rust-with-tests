@@ -1,10 +1,10 @@
 use std::ops::Add; // note this trait (i think?) needs importing
 
 fn main() {
-    println!("{}",sum1([1, 1, 1]))
+    println!("{}", sum2([1, 1, 1]))
 }
 
-fn sum1(numbers: [i32; 3]) -> i32 {
+fn sum2(numbers: [i32; 3]) -> i32 {
     let mut total = 0;
     for (_, &item) in numbers.iter().enumerate() {
         total = total + item
@@ -12,14 +12,27 @@ fn sum1(numbers: [i32; 3]) -> i32 {
     total
 }
 
-fn sum2(numbers: [i32; 3]) -> i32 {
+fn sum1(numbers: [i32; 3]) -> i32 {
+    let mut total = 0;
+    let mut counter = 0;
+    loop { // todo: use loop as an expression
+        if counter == numbers.len() {
+            break
+        }
+        total = total + numbers[counter];
+        counter = counter + 1;
+    }
+    total
+}
+
+fn sum3(numbers: [i32; 3]) -> i32 {
     numbers
         .iter()
         .enumerate()
         .fold(0, |sum, val| val.1.add(sum)) // this feels wonky but fine
 }
 
-fn sum3(numbers: [i32; 3]) -> i32 {
+fn sum4(numbers: [i32; 3]) -> i32 {
     numbers.iter().sum()
 }
 
