@@ -26,3 +26,21 @@ there to install mdBook on your machine and build the book.
 - https://doc.rust-lang.org/book/ch11-00-testing.html
 
 [mdBook]: https://github.com/rust-lang/mdBook
+
+## Runing mdbook
+
+To run mdbook via docker from the root of the project:
+
+```shell
+# show usage
+./mdbook.sh
+
+# test code samples
+./mdbook.sh test
+
+# serve the book at http://0.0.0.0:3000, watching for changes
+./mdbook.sh serve --hostname 0.0.0.0
+
+# build the book to the book/ folder
+./mdbook.sh build
+```
