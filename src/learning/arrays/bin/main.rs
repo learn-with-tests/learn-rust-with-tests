@@ -9,7 +9,7 @@ fn sum1(numbers: [i32; 3]) -> i32 {
     for (_, &item) in numbers.iter().enumerate() {
         total = total + item
     }
-    return total;
+    total
 }
 
 fn sum2(numbers: [i32; 3]) -> i32 {
