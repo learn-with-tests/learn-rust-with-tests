@@ -30,29 +30,23 @@ mod tests {
     const NUMBERS: [i32; 3] = [1, 2, 3];
     const EXPECTED_SUM: i32 = 6;
 
-    fn testSum(f: &dyn Fn([i32; 3]) -> i32) {
+    fn testSum(f: fn([i32; 3]) -> i32) {
         assert_eq!(EXPECTED_SUM, f(NUMBERS))
     }
 
-    /*
-    why address of the function is passed? are these funcs not pure?
-
-    https://stackoverflow.com/a/36390748
-     */
-
     #[test]
     fn test_sum1() {
-        testSum(&sum1)
+        testSum(sum1)
     }
 
     #[test]
     fn test_sum2() {
-        testSum(&sum2)
+        testSum(sum2)
     }
 
     #[test]
     fn test_sum3() {
-        testSum(&sum3);
+        testSum(sum3);
     }
 }
 
