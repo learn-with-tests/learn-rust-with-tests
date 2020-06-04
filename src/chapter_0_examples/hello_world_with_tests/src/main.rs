@@ -1,17 +1,18 @@
-fn hello() -> String {
-    return String::from("Hello, world!");
+fn greet() -> String {
+    String::from("Hello, World!")
 }
 
 fn main() {
-    println!("{}", hello());
+    println!("{}", greet());
 }
 
 #[cfg(test)]
 mod tests {
+    use super::greet;
 
     #[test]
-    fn check_hello() {
-        assert_eq!(super::hello(), "Hello, world!");
+    fn test_greet() {
+        assert_eq!(greet(), "Hello, world!");
     }
-    
+
 }
