@@ -11,7 +11,7 @@ there to install mdBook on your machine and build the book.
 
 ## Things to improve
 
-- Make some £££
+- ~Make some £££~ Provide this amazing resource to the community free of charge
 - Maybe use https://github.com/rust-lang/mdBook
 - My spelling and grammar is shit. It would be good to automate a checker
 - Automate building the book
