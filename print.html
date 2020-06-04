@@ -251,9 +251,32 @@ usually end in a semicolon - there's a special reason for this which we'll see
 later.</p>
 <h1><a class="header" href="#chapter-1-hello-you" id="chapter-1-hello-you">Chapter 1: Hello, You!</a></h1>
 <p>In the previous chapter we wrote a greet function and <em>then</em> wrote the tests. </p>
+<pre><pre class="playpen"><code class="language-rust">
+<span class="boring">#![allow(unused_variables)]
+</span><span class="boring">fn main() {
+</span>fn greet() -&gt; String {
+    String::from(&quot;Hello, World!&quot;)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::greet;
+
+    #[test]
+    fn test_greet() {
+        assert_eq!(&quot;Hello, World!&quot;, greet());
+    }
+}
+<span class="boring">}
+</span></code></pre></pre>
 <p>From this point on we will be writing tests first.</p>
 <p>Our next requirement is to let us specify the recipient of the greeting.</p>
 <p>Let's start by capturing these requirements in a test. This is basic test driven development and allows us to make sure our test is actually testing what we want. When you retrospectively write tests there is the risk that your test may continue to pass even if the code doesn't work as intended.</p>
+<h2><a class="header" href="#write-the-test-first" id="write-the-test-first">Write the test first</a></h2>
+<h2><a class="header" href="#try-to-run-the-test" id="try-to-run-the-test">Try to run the test</a></h2>
+<h2><a class="header" href="#write-the-minimal-amount-of-code-for-the-test-to-run-and-check-the-failing-test-output" id="write-the-minimal-amount-of-code-for-the-test-to-run-and-check-the-failing-test-output">Write the minimal amount of code for the test to run and check the failing test output</a></h2>
+<h2><a class="header" href="#write-enough-code-to-make-it-pass" id="write-enough-code-to-make-it-pass">Write enough code to make it pass</a></h2>
+<h2><a class="header" href="#refactor" id="refactor">Refactor</a></h2>
 
                     </main>
 
