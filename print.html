@@ -248,7 +248,28 @@ it as a function. The function is being called by having a pair of paretheses
 after its name.  And it's being called with one argument - one 'thing' inside the parentheses - a <em>string</em> that says <code>&quot;Hello, world!&quot;</code>.</p>
 <p>Then comes a closing parenthesis and a semicolon (<code>;</code>). Lines of Rust code
 usually end in a semicolon - there's a special reason for this which we'll see
-later.</p>
+later. And finally a closing curly brace <code>}</code>, which ends the function body.
+Whew!</p>
+<p>Right now we can only test this program by running it. Which isn't that bad,
+really. We can run it quickly and as often as we like, and we can read the
+output to see that it says what we expect.</p>
+<p>We could even write an automated test in another language - something that runs
+the program and compares what it outputs to what we expect. This type of test is
+sometimes called an <em>acceptance test</em>. We will look at those later too.</p>
+<p>We can only test our program this way because the output is the only <em>interface</em>
+we have access to in the program.</p>
+<p>At the moment we're trying to test the steering wheel of a car by watching
+somebody else drive the car. Wouldn't it be easier if we just got inside the car
+and turned the wheel ourself?</p>
+<p>To do this we're going to introduce another surface - another interface - to our
+program. We're going to test it <em>from the inside</em> of our program to check that
+it works. Then we're going to use that interface when the program actually runs
+in order to print &quot;Hello, world!&quot;.</p>
+<p>Of course, this doesn't guarantee that our program will work. Just as climbing
+inside a stationary car, turning the wheel, and watching the wheels turn doesn't
+guarantee that the car will actually turn a corner when it's being driven. But
+it does give us some confidence that it will.</p>
+<h2><a class="header" href="#my-first-test---rust-edition" id="my-first-test---rust-edition">My First Test - Rust Edition</a></h2>
 <h1><a class="header" href="#chapter-1-hello-you" id="chapter-1-hello-you">Chapter 1: Hello, You!</a></h1>
 <p>In the previous chapter we wrote a greet function and <em>then</em> wrote the tests. </p>
 <pre><pre class="playpen"><code class="language-rust">
