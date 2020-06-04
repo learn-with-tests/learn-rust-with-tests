@@ -1,0 +1,6 @@
+[book]
+authors = ["David Wickes", "Chris James"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Learn Rust With TDD"
