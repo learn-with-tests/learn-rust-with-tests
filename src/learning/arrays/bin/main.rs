@@ -1,3 +1,5 @@
+use std::ops::Add;
+
 fn main() {
     println!("{}",sum([1, 1, 1]))
 }
@@ -15,7 +17,7 @@ fn sum2(numbers: [i32; 3]) -> i32 {
     let iter = numbers.iter();
 
     let enumerate = iter.enumerate();
-    enumerate.fold(0, |sum, val| sum + val)
+    enumerate.fold(0, |sum, val| val.1.add(sum))
 }
 
 #[cfg(test)]
