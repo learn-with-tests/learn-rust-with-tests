@@ -135,6 +135,32 @@ after its name.  And it's being called with one argument - one 'thing' inside th
 
 Then comes a closing parenthesis and a semicolon (`;`). Lines of Rust code
 usually end in a semicolon - there's a special reason for this which we'll see
-later.
+later. And finally a closing curly brace `}`, which ends the function body.
+Whew!
 
+Right now we can only test this program by running it. Which isn't that bad,
+really. We can run it quickly and as often as we like, and we can read the
+output to see that it says what we expect.
 
+We could even write an automated test in another language - something that runs
+the program and compares what it outputs to what we expect. This type of test is
+sometimes called an _acceptance test_. We will look at those later too.
+
+We can only test our program this way because the output is the only _interface_
+we have access to in the program.
+
+At the moment we're trying to test the steering wheel of a car by watching
+somebody else drive the car. Wouldn't it be easier if we just got inside the car
+and turned the wheel ourself?
+
+To do this we're going to introduce another surface - another interface - to our
+program. We're going to test it _from the inside_ of our program to check that
+it works. Then we're going to use that interface when the program actually runs
+in order to print "Hello, world!".
+
+Of course, this doesn't guarantee that our program will work. Just as climbing
+inside a stationary car, turning the wheel, and watching the wheels turn doesn't
+guarantee that the car will actually turn a corner when it's being driven. But
+it does give us some confidence that it will.
+
+## My First Test - Rust Edition
