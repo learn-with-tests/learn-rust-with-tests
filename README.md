@@ -15,7 +15,7 @@ there to install mdBook on your machine and build the book.
 - Maybe use https://github.com/rust-lang/mdBook
 - My spelling and grammar is shit. It would be good to automate a checker
 - Automate building the book
-- A big pain point with the go one was keeping snippets in the md and the source consistent, is there a way to make it easy?
+- A big pain point with the go one was keeping snippets in the md and the source consistent, is there a way to make it easy? (https://rust-lang.github.io/mdBook/format/mdbook.html#mdbook-specific-markdown)
 
 ## Resources
 
