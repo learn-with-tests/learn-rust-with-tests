@@ -12,7 +12,6 @@ mod tests {
 
     #[test]
     fn test_greet() {
-        assert_eq!(greet(), "Hello, world!");
+        assert_eq!(greet(), "Hello, World!");
     }
-
 }
