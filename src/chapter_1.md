@@ -26,7 +26,7 @@ mod tests {
     #[test]
     fn test_greet_with_name() {
         let got = greet(String::from("Chris"));
-        let want = "Hello, Chris";
+        let want = "Hello, Chris!";
 
         assert_eq!(got, want);
     }
@@ -72,7 +72,7 @@ failures:
 ---- greet_with_name::tests::test_greet_with_name stdout ----
 thread 'greet_with_name::tests::test_greet_with_name' panicked at 'assertion failed: `(left == right)`
   left: `"Hello, World!"`,
- right: `"Hello, Chris"`', src/greet_with_name.rs:14:9
+ right: `"Hello, Chris!"`', src/greet_with_name.rs:14:9
 note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
 
 
@@ -88,7 +88,7 @@ Let's make the test pass by joining the name argument with the rest of our greet
 
 ```rust
 fn greet(name: String) -> String {
-    format!("Hello, {}", name)
+    format!("Hello, {}!", name)
 }
 ```
 
