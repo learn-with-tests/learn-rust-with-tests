@@ -1,4 +1,4 @@
-fn greet() -> String {
+fn greet(name: String) -> String {
     String::from("Hello, World!")
 }
 

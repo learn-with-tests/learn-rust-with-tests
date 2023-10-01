@@ -1,5 +1,5 @@
-fn greet() -> String {
-    String::from("Hello, World!")
+fn greet(name: String) -> String {
+    format!("Hello, {}", name)
 }
 
 #[cfg(test)]
