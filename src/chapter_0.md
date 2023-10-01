@@ -214,8 +214,8 @@ of standard library for testing equality between two values. In this case we are
 asserting the actual value returned from our function matches the expected
 value.
 
-Notice that when it comes to testing Rust is a batteries included language -
+Notice that when it comes to testing, Rust is a batteries included language -
 everything you need to get started is included in the language and standard
 tools. Also of note is that while there is a little boilerplate required to
-separate your testing code, test's are concise with very little ceremony
+separate your testing code, tests are concise with very little ceremony
 required.
