@@ -8,11 +8,10 @@ fn main() {
 
 #[cfg(test)]
 mod tests {
-    use super::greet;
+    use super::*;
 
     #[test]
     fn test_greet() {
         assert_eq!(greet(), "Hello, world!");
     }
-
 }
